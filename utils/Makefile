@@ -6,7 +6,7 @@ CFLAGS		+= -g -Wall -Werror
 all : ttf2font data2c anim
 
 ttf2font : ttf2font.c
-	$(CC) $(CFLAGS) ttf2font.c `freetype-config --cflags --libs` -o ttf2font
+	$(CC) $(CFLAGS) ttf2font.c `pkg-config --cflags freetype2 --libs` -o ttf2font
 
 data2c : data2c.c
 	$(CC) $(CFLAGS) data2c.c `sdl-config --cflags --libs` -o data2c

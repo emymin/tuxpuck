@@ -6,7 +6,7 @@ CFLAGS		+= -D_VERSION=\"$(VERSION)\" -g -Wall
 CSOURCES	= tuxpuck.c video.c audio.c menu.c sprite.c font.c timer.c \
 		  board.c entity.c glass.c scoreboard.c player.c zoom.c png.c \
 		  jpg.c intro.c tux.c arcana.c 
-INCLUDES	= tuxpuck.h video.h audio.h font.h
+INCLUDES	= tuxpuck.h video.h audio.h font.h 
 	   	  
 
 #############################################################
@@ -22,7 +22,7 @@ endif
 $(NAME) : $(OBJS)
 	cd data; $(MAKE)
 	$(CC) $(CFLAGS) $(OBJS) data/libdata.a `sdl-config --libs` -lm -lpng \
-	-ljpeg -lz -lvorbisfile -lvorbis -logg -o $(NAME)
+	-ljpeg -lz -lvorbisfile -lvorbis -logg -lfreetype -o $(NAME)
 
 w32icon.o : data/icons/tuxpuck.ico
 	echo AppIcon ICON "data/icons/tuxpuck.ico" > temp.rc
